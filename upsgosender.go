@@ -65,6 +65,14 @@ type UnifiedMessage struct {
 	Message  Message  `json:"message,omitempty"`
 }
 
+// NewSender ...
+func NewSender(settings Settings) *Sender {
+	settings.URL = settings.URL + "/rest/sender"
+	sender := new(Sender)
+	sender.Settings = settings
+	return sender
+}
+
 func (f UnifiedMessage) toJSON() []byte {
 	result, _ := json.Marshal(f)
 	return result
