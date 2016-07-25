@@ -14,10 +14,10 @@ criteria := &Criteria{Alias: []string{"seb", "bob"}}
 message := &Message{Alert: "hello from #golang sender"}
 unifiedMessage := &UnifiedMessage{Message: *message, Criteria: *criteria}
 settings := &Settings{
-	URL:           "https://mypushserver.com/ag-push/rest/sender",
+	URL:           "https://mypushserver.com/ag-push",
 	ApplicationID: "58f87fb7-829c-4c6f-a0eb-326d3017a94c",
 	MasterSecret:  "3366736b-d52c-4115-87d3-c08095e87955"}
-sender := &Sender{Settings: *settings}
+sender := NewSender(*settings)
 sender.send(*unifiedMessage)
         
 ```
